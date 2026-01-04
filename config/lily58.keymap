@@ -12,24 +12,24 @@
 
 / {
     behaviors {
+        // Hold: momentary Lower (1), Tap: to Russian (3)
         lt_lower_to_russian: lt_lower_to_russian {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "tap-preferred";  // тап приоритетный, чтобы переключение было надёжным
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            bindings = <&mo>;
-            bindings = <&to>;
+            bindings = <&mo>, <&to>;   // ВНИМАНИЕ: первый — hold (&mo), второй — tap (&to)
         };
 
+        // Hold: momentary Lower (1), Tap: to Base (0)
         lt_back_to_base: lt_back_to_base {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            bindings = <&mo>;
-            bindings = <&to>;
+            bindings = <&mo>, <&to>;   // hold &mo, tap &to
         };
     };
 
