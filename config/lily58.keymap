@@ -12,7 +12,8 @@
 #include <zmk-unicode/keys/russian.h>
 
 &uc {
-  default-mode = <1>;
+  default-mode = <UC_MODE_MACOS>;
+  minimum-length = <4>;
 };
 
 
