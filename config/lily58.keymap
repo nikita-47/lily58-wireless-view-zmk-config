@@ -86,11 +86,11 @@
         russian_layer {
             display-name = "Russian";
             bindings = <
-&trans    &trans    &trans     &trans     &trans     &trans                          &trans           &trans      &trans       &trans      &trans     &trans
+&trans    &trans    &trans     &trans     &trans     &trans                          &trans           &trans      &trans      &trans      &trans     &trans
 &trans    &uc 0x439 &uc 0x446  &uc 0x443  &uc 0x43A  &uc 0x435                       &uc 0x43D        &uc 0x433   &uc 0x448   &uc 0x449   &uc 0x437  &uc 0x445
 &trans    &uc 0x444 &uc 0x44B  &uc 0x432  &uc 0x430  &uc 0x43F                       &uc 0x440        &uc 0x43E   &uc 0x43B   &uc 0x434   &uc 0x436  &uc 0x44D
 &trans    &uc 0x44F &uc 0x447  &uc 0x441  &uc 0x43C  &uc 0x438    &trans   &trans    &uc 0x442        &uc 0x44C   &uc 0x431   &uc 0x44E   &trans     &trans
-                               &trans     &trans     &trans       &trans   &trans    &custom_md 2 1   &trans      &trans
+                               &trans     &trans     &trans       &trans   &trans    &trans           &trans      &trans
             >;
         };
 
