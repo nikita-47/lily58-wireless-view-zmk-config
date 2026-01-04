@@ -11,24 +11,29 @@
 #include <behaviors/unicode.dtsi>
 
 / {
-    behaviors {
-        lt_lower_to_russian: lt_lower_to_russian {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";     // или "balanced", если hold срабатывает слишком поздно
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            bindings = <&mo>, <&to>;
-        };
-
-        lt_back_to_base: lt_back_to_base {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&to>;
-        };
+behaviors {
+    // Тап: переключаемся на русский слой (4-й слой, но индекс 3)
+    // Hold: momentary lower (индекс 1)
+    lt_lower_to_russian: lt_lower_to_russian {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <150>;
+        bindings = <&mo 1>, <&to 3>;  // hold: mo lower, tap: to russian
     };
+
+    // На русском слое: тап — возвращаемся в Base (to 0)
+    // Hold: momentary lower (mo 1)
+    lt_back_to_base: lt_back_to_base {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <150>;
+        bindings = <&mo 1>, <&to 0>;  // hold: mo lower, tap: to base
+    };
+};
 
 
     keymap {
