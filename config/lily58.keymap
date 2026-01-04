@@ -11,7 +11,7 @@
 #include <behaviors/unicode.dtsi> 
 
 &uc {
-  default-mode = <UC_MODE_MACOS>;  // Default to Linux input system
+  default-mode = <UC_MODE_MACOS>;
 };
 
 
