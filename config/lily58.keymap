@@ -12,22 +12,13 @@
 
 / {
     behaviors {
-        to_russian: mod_tap {
+        custom_md: mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo 1>;
-            display-name = "To Russian";
-        };
-
-        to_english: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo 2>;
-            display-name = "To English";
+            bindings = <&mo>, <&to>;
+            display-name = "Custom MD";
         };
     };
 
@@ -48,7 +39,7 @@
 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
 &kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
 &kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LALT &kp LGUI &to_russian  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
+                        &kp LALT &kp LGUI &custom_md 1 3 &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -95,11 +86,11 @@
         russian_layer {
             display-name = "Russian";
             bindings = <
-&trans    &trans    &trans     &trans     &trans     &trans                        &trans        &trans      &trans       &trans      &trans     &trans
-&trans    &uc 0x439 &uc 0x446  &uc 0x443  &uc 0x43A  &uc 0x435                     &uc 0x43D     &uc 0x433   &uc 0x448   &uc 0x449   &uc 0x437  &uc 0x445
-&trans    &uc 0x444 &uc 0x44B  &uc 0x432  &uc 0x430  &uc 0x43F                     &uc 0x440     &uc 0x43E   &uc 0x43B   &uc 0x434   &uc 0x436  &uc 0x44D
-&trans    &uc 0x44F &uc 0x447  &uc 0x441  &uc 0x43C  &uc 0x438  &trans   &trans    &uc 0x442     &uc 0x44C   &uc 0x431   &uc 0x44E   &trans     &trans
-                               &trans     &trans     &trans     &trans   &trans    &to_english   &trans      &trans
+&trans    &trans    &trans     &trans     &trans     &trans                          &trans           &trans      &trans       &trans      &trans     &trans
+&trans    &uc 0x439 &uc 0x446  &uc 0x443  &uc 0x43A  &uc 0x435                       &uc 0x43D        &uc 0x433   &uc 0x448   &uc 0x449   &uc 0x437  &uc 0x445
+&trans    &uc 0x444 &uc 0x44B  &uc 0x432  &uc 0x430  &uc 0x43F                       &uc 0x440        &uc 0x43E   &uc 0x43B   &uc 0x434   &uc 0x436  &uc 0x44D
+&trans    &uc 0x44F &uc 0x447  &uc 0x441  &uc 0x43C  &uc 0x438    &trans   &trans    &uc 0x442        &uc 0x44C   &uc 0x431   &uc 0x44E   &trans     &trans
+                               &trans     &trans     &trans       &trans   &trans    &custom_md 2 1   &trans      &trans
             >;
         };
 
