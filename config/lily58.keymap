@@ -17,7 +17,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo 1>, <&to 3>;
+            bindings = <&mo 1>;
             display-name = "To Russian";
         };
 
@@ -26,7 +26,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo 2>, <&to 0>;
+            bindings = <&mo 2>;
             display-name = "To English";
         };
     };
