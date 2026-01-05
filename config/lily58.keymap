@@ -14,8 +14,8 @@
 &uc {
   default-mode = <UC_MODE_MACOS>;
   minimum-length = <4>;
+  macos-key = <RALT>;
 };
-
 
 / {
     behaviors {
