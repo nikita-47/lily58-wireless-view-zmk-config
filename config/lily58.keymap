@@ -13,7 +13,7 @@
 
 &uc {
   default-mode = <UC_MODE_MACOS>;
-  minimum-length = <3>;
+  minimum-length = <5>;
   macos-key = <RALT>;
 };
 
