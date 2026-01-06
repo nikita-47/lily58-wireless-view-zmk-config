@@ -117,7 +117,7 @@
             display-name = "Russian";
             bindings = <
 &trans    &trans       &trans     &trans     &trans     &trans                                  &trans       &trans         &trans        &trans        &trans        &trans
-&trans    &uc UC_RU_Y  &uc UC_RU_TS  &uc UC_RU_U  &uc UC_RU_K  &&ru_ye                          &uc UC_RU_N  &uc UC_RU_G    &ru_sh        &uc UC_RU_Z   &uc UC_RU_KH  &trans
+&trans    &uc UC_RU_Y  &uc UC_RU_TS  &uc UC_RU_U  &uc UC_RU_K  &ru_ye                           &uc UC_RU_N  &uc UC_RU_G    &ru_sh        &uc UC_RU_Z   &uc UC_RU_KH  &trans
 &trans    &uc UC_RU_F  &uc UC_RU_BI  &uc UC_RU_V  &uc UC_RU_A  &uc UC_RU_P                      &uc UC_RU_R  &uc UC_RU_O    &uc UC_RU_L   &uc UC_RU_D   &uc UC_RU_ZH  &trans
 &trans    &uc UC_RU_YA &uc UC_RU_CH  &uc UC_RU_S  &uc UC_RU_M  &uc UC_RU_I   &trans   &trans    &uc UC_RU_T  &ru_soft       &uc UC_RU_B   &uc UC_RU_YU  &uc UC_RU_E   &trans
                                      &trans       &trans       &trans        &trans   &trans    &trans       &trans         &trans
