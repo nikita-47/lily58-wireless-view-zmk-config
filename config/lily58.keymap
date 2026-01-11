@@ -12,9 +12,9 @@
 #include <zmk-unicode/keys/russian.h>
 
 #define DEF 0
-#define LWR 1
-#define RAI 2
-#define RUS 3
+#define RUS 1
+#define LWR 2
+#define RAI 3
 #define CMD 4 
 
 #define MEH(key) LS(LC(LA(key)))
