@@ -102,6 +102,17 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
+        russian_layer {
+            display-name = "Russian";
+            bindings = <
+&trans    &trans       &trans     &trans     &trans     &trans                                     &trans       &trans         &trans        &trans        &trans        &trans
+&trans    &uc UC_RU_Y  &uc UC_RU_TS  &uc UC_RU_U  &uc UC_RU_K  &ru_ye                              &uc UC_RU_N  &uc UC_RU_G    &ru_sh        &uc UC_RU_Z   &uc UC_RU_KH  &trans
+&trans    &uc UC_RU_F  &uc UC_RU_BI  &uc UC_RU_V  &uc UC_RU_A  &uc UC_RU_P                         &uc UC_RU_R  &uc UC_RU_O    &uc UC_RU_L   &uc UC_RU_D   &uc UC_RU_ZH  &trans
+&trans    &uc UC_RU_YA &uc UC_RU_CH  &uc UC_RU_S  &uc UC_RU_M  &uc UC_RU_I      &trans   &trans    &uc UC_RU_T  &ru_soft       &uc UC_RU_B   &uc UC_RU_YU  &uc UC_RU_E   &trans
+                                     &trans       &trans       &trans           &trans   &trans    &trans       &trans         &trans
+            >;
+        };
+
         lower_layer {
 // ------------------------------------------------------------------------------------------------------------
 // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
@@ -140,17 +151,6 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        russian_layer {
-            display-name = "Russian";
-            bindings = <
-&trans    &trans       &trans     &trans     &trans     &trans                                     &trans       &trans         &trans        &trans        &trans        &trans
-&trans    &uc UC_RU_Y  &uc UC_RU_TS  &uc UC_RU_U  &uc UC_RU_K  &ru_ye                              &uc UC_RU_N  &uc UC_RU_G    &ru_sh        &uc UC_RU_Z   &uc UC_RU_KH  &trans
-&trans    &uc UC_RU_F  &uc UC_RU_BI  &uc UC_RU_V  &uc UC_RU_A  &uc UC_RU_P                         &uc UC_RU_R  &uc UC_RU_O    &uc UC_RU_L   &uc UC_RU_D   &uc UC_RU_ZH  &trans
-&trans    &uc UC_RU_YA &uc UC_RU_CH  &uc UC_RU_S  &uc UC_RU_M  &uc UC_RU_I      &trans   &trans    &uc UC_RU_T  &ru_soft       &uc UC_RU_B   &uc UC_RU_YU  &uc UC_RU_E   &trans
-                                     &trans      &mo 4         &custom_md 1 0  &trans    &trans    &custom_md 2 3   &trans     &kp LS(LC(LA(LG(X))))
-            >;
-        };
-
         cmd_layer {
           display-name = "CMD";
           bindings = <
@@ -158,7 +158,7 @@
 &trans  &kp LG(Q)   &kp LG(W)   &kp LG(E)   &kp LG(R)   &kp LG(T)                              &kp LG(Y)        &kp LG(U)   &kp LG(I)   &kp LG(O)   &kp LG(P)   &trans
 &trans  &kp LG(A)   &kp LG(S)   &kp LG(D)   &kp LG(F)   &kp LG(G)                              &kp LG(H)        &kp LG(J)   &kp LG(K)   &kp LG(L)   &trans      &trans
 &trans  &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LG(B)          &trans    &trans    &kp LG(N)        &kp LG(M)   &trans      &trans      &trans      &trans
-                                &trans      &mo 4       &trans             &trans    &trans    &trans           &trans      &kp SUP(X)
+                                &trans      &trans      &trans             &trans    &trans    &trans           &trans      &trans
           >;
       };
 
