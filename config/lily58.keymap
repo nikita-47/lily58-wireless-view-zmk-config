@@ -112,7 +112,7 @@
 &kp TAB   &kp Q  &kp W  &kp E    &kp R      &kp T                                         &kp Y               &kp U     &kp I       &kp O      &kp P    &slash_bc
 &kp LCTRL &kp A  &kp S  &kp D    &kp F      &kp G                                         &kp H               &kp J     &kp K       &kp L      &kp SEMI &kp SINGLE_QUOTE
 &kp LSHFT &kp Z  &kp X  &kp C    &kp V      &kp B               &comma_semi  &dot_colon   &kp N               &kp M     &kp LBKT    &kp RBKT   &kp FSLH &kp RSHFT
-                        &kp LALT &mo CMD    &custom_md LWR DEF  &kp SPACE    &kp RET      &custom_md RAI RUS  &kp BSPC  &meh_x                     
+                        &kp LALT &mo CMD    &custom_md LWR DEF  &kp SPACE    &kp RET      &custom_md RAI RUS  &kp BSPC  &kp LS(LC(LALT))                     
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
