@@ -8,102 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include <behaviors/unicode.dtsi> 
-#include <zmk-unicode/keys/russian.h>
-
-#define DEF 0
-#define RUS 1
-#define LWR 2
-#define RAI 3
-#define CMD 4 
-
-// #define MEH(key) LS(LC(LA(key)))
-// #define HYPER(key) LG(LS(LC(LA(key))))
-
-&uc {
-  default-mode = <UC_MODE_MACOS>;
-  minimum-length = <4>;
-  macos-key = <RALT>;
-};
 
 / {
-    macros {
-        // Left Shift + Left Ctrl + Left Alt + key
-        meh_x: meh_x {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(LC(LA(X)))>;
-        };
-    };
-
-    behaviors {
-        custom_md: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&to>;
-            display-name = "Custom MD";
-        };
-
-        // ь/Ь → ъ/Ъ при Alt
-        ru_soft: ru_soft_hard {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc UC_RU_SOFT>, <&uc UC_RU_HARD>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        // ш/Ш → щ/Щ при Alt
-        ru_sh: ru_sh_shch {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc UC_RU_SH>, <&uc UC_RU_SHCH>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        // е/Е → ё/Ё при Alt
-        ru_ye: ru_ye_yo {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc UC_RU_YE>, <&uc UC_RU_YO>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        // , → ; при Shift
-        comma_semi: comma_semi {
-          compatible = "zmk,behavior-mod-morph";
-          #binding-cells = <0>;
-          bindings = <&kp COMMA>, <&kp SEMICOLON>;
-          mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // . → : при Shift
-        dot_colon: dot_colon {
-          compatible = "zmk,behavior-mod-morph";
-          #binding-cells = <0>;
-          bindings = <&kp DOT>, <&kp COLON>;
-          mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // / → \ при Shift
-        slash_bc: slash_bc {
-          compatible = "zmk,behavior-mod-morph";
-          #binding-cells = <0>;
-          bindings = <&kp SLASH>, <&kp BACKSLASH>;
-          mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // BSPC → DEL при Shift
-        bspc_del: bspc_del {
-          compatible = "zmk,behavior-mod-morph";
-          #binding-cells = <0>;
-          bindings = <&kp BSPC>, <&kp DELETE>;
-          mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-    };
-
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -116,24 +22,14 @@
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
             display-name = "Base";
             bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4     &kp N5                                        &kp N6              &kp N7    &kp N8      &kp N9     &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W  &kp E    &kp R      &kp T                                         &kp Y               &kp U     &kp I       &kp O      &kp P    &slash_bc
-&kp LCTRL &kp A  &kp S  &kp D    &kp F      &kp G                                         &kp H               &kp J     &kp K       &kp L      &kp SEMI &kp SINGLE_QUOTE
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V      &kp B               &comma_semi  &dot_colon   &kp N               &kp M     &kp LBKT    &kp RBKT   &kp FSLH &kp RSHFT
-                        &kp LALT &mo CMD    &custom_md LWR DEF  &kp SPACE    &kp RET      &custom_md RAI RUS  &bspc_del &kp LS(LC(LALT))                     
+&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
+&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
+&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
 
-        russian_layer {
-            display-name = "Russian";
-            bindings = <
-&trans    &trans       &trans     &trans     &trans     &trans                                     &trans       &trans         &trans        &trans        &trans        &trans
-&trans    &uc UC_RU_Y  &uc UC_RU_TS  &uc UC_RU_U  &uc UC_RU_K  &ru_ye                              &uc UC_RU_N  &uc UC_RU_G    &ru_sh        &uc UC_RU_Z   &uc UC_RU_KH  &trans
-&trans    &uc UC_RU_F  &uc UC_RU_BI  &uc UC_RU_V  &uc UC_RU_A  &uc UC_RU_P                         &uc UC_RU_R  &uc UC_RU_O    &uc UC_RU_L   &uc UC_RU_D   &uc UC_RU_ZH  &trans
-&trans    &uc UC_RU_YA &uc UC_RU_CH  &uc UC_RU_S  &uc UC_RU_M  &uc UC_RU_I      &trans   &trans    &uc UC_RU_T  &ru_soft       &uc UC_RU_B   &uc UC_RU_YU  &uc UC_RU_E   &trans
-                                     &trans       &trans       &trans           &trans   &trans    &trans       &trans         &trans
-            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
@@ -145,10 +41,10 @@
 //                     |      |      |      |        |  |       |      |       |       |
             display-name = "Lower";
             bindings = <
-&bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans             &kp UNDERSCORE    &kp KP_EQUAL    &trans
-&kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9             &kp F10           &kp F11         &kp F12
-&kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp KP_MULTIPLY    &kp LPAR          &kp RPAR        &kp TILDE
-&trans     &trans           &trans            &trans            &trans       &trans    &trans   &trans    &trans    &kp MINUS &kp LEFT_BRACE     &kp RIGHT_BRACE   &kp RBRC        &kp PIPE
+&bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans          &trans    &trans    &trans
+&kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &kp F12
+&kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &kp TILDE
+&trans     &trans           &trans            &trans            &trans       &trans    &trans   &trans    &trans    &kp MINUS &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
                                               &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
             >;
 
@@ -158,32 +54,29 @@
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-
+// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
 // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
 // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
 //                     |      |      |      |        |  |       |      |       |       |
             display-name = "Raise";
             bindings = <
-&trans    &trans &trans &trans  &kp LG(LS(N4))  &trans                       &trans      &trans    &trans           &kp KP_MINUS            &kp KP_PLUS   &trans
-&kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4          &kp N5                       &kp N6      &kp N7    &kp N8           &kp N9                  &kp N0        &kp PIPE
-&kp F1    &kp F2 &kp F3 &kp F4  &kp F5          &kp F6                       &kp LEFT    &kp DOWN  &kp UP           &kp RIGHT               &trans        &trans
-&kp F7    &kp F8 &kp F9 &kp F10 &kp F11         &kp F12   &trans   &trans    &kp KP_PLUS &kp MINUS &kp LEFT_BRACKET &kp RIGHT_BRACKET       &kp QUESTION  &kp BSLH
-                        &trans  &trans          &trans    &trans   &trans    &trans      &trans    &trans
+&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
+&kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
+&kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
+&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
+                        &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        cmd_layer {
-          display-name = "CMD";
-          bindings = <
-&trans  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)                             &kp LG(N6)       &kp LG(N7)  &kp LG(N8)  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans
-&trans  &kp LG(Q)   &kp LG(W)   &kp LG(E)   &kp LG(R)   &kp LG(T)                              &kp LG(Y)        &kp LG(U)   &kp LG(I)   &kp LG(O)          &kp LG(P)        &trans
-&trans  &kp LG(A)   &kp LG(S)   &kp LG(D)   &kp LG(F)   &kp LG(G)                              &kp LG(H)        &kp LG(J)   &kp LG(K)   &kp LG(L)          &trans           &trans
-&trans  &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)   &kp LG(B)          &trans    &trans    &kp LG(N)        &kp LG(M)   &trans      &trans             &trans           &trans
-                                &trans      &trans      &trans             &trans    &trans    &trans           &trans      &trans
-          >;
-      };
+        extra_1 {
+            status = "reserved";
+        };
+
+        extra_2 {
+            status = "reserved";
+        };
 
         extra_3 {
             status = "reserved";
